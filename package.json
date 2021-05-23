@@ -1,0 +1,29 @@
+{
+  "name": "ideathon-2.0-konnekt-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.10",
+    "nodemon": "^2.0.7",
+    "save": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p-bhuvanreddy/ideathon-2.0-konnekt-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/p-bhuvanreddy/ideathon-2.0-konnekt-/issues"
+  },
+  "homepage": "https://github.com/p-bhuvanreddy/ideathon-2.0-konnekt-#readme"
+}

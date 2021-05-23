@@ -1,0 +1,24 @@
+<div>
+    <a href="/getdetails">Get Details</a>
+</div>
+    <hr>
+    
+    <% if(events!=null) { %>
+    <table style ="border: 1px solid black;">
+    <tr>
+        <th>Event name</th>
+        <th>Event date</th>
+        <th>Registration end date</th>
+        <th>Registration link</th>
+    </tr>
+    <% events.forEach(function(item){ %>
+    <tr>
+        <td><%= item.event_name%></td>
+        <td><%= item.event_date %></td>
+        <td><%= item.registration_end_date%></td>
+        <td><%= item.registration_link %></td>
+    
+    </tr>
+    <% }) %>
+    </table>
+    <% } %>
