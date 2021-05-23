@@ -12,23 +12,28 @@ var schema = new mongoose.Schema({
   event_date : String,
   registration_end_date : String,
   registration_link : String,
+  event_status :String
 },
 {
     collection : 'presentevents'
 });
-var detailsModel = mongoose.model("events", schema);
+
+var pdetailsModel = mongoose.model("pevents", schema);
 app.get("/", function (req, res) {
-res.render("index",{ events: null })
+res.render("index",{ pevents: null })
+
 })
-app.get("/getdetails", function (req, res) {   
-detailsModel.find({}, function (err, allevents) {
+app.get("/index", function (req, res) {   
+pdetailsModel.find({}, function (err, allpevents) {
     if (err) {
         console.log(err);
-    } else {
-        res.render("index", { events: allevents })
+    } 
+    else {
+        res.render("index", { pevents: allpevents })
     }
 })
 })
+
 app.listen(3000, "localhost", function () {
 console.log("server has started");
 })

@@ -1,24 +1,88 @@
-<div>
-    <a href="/getdetails">Get Details</a>
-</div>
-    <hr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+          height: auto;
+          margin: 0;
+        }
+        
+        .bg {
+          background-image: url("https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60");
+        
+          height: auto; 
+        
+          background-position: center;
+          background-repeat: repeat;
+          background-size: cover;
+        }
+    </style>
+    <title>Events</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     
-    <% if(events!=null) { %>
-    <table style ="border: 1px solid black;">
-    <tr>
-        <th>Event name</th>
-        <th>Event date</th>
-        <th>Registration end date</th>
-        <th>Registration link</th>
-    </tr>
-    <% events.forEach(function(item){ %>
-    <tr>
-        <td><%= item.event_name%></td>
-        <td><%= item.event_date %></td>
-        <td><%= item.registration_end_date%></td>
-        <td><%= item.registration_link %></td>
-    
-    </tr>
-    <% }) %>
-    </table>
-    <% } %>
+</head>
+
+<body class="bg">
+    <div >
+        <div>
+            <h3 style="color:black"><b>Present Events</b></h3>
+            <% if(pevents!=null) { %>
+            
+            <table class="table table-bordered" style="text-align: center;margin-left:auto;margin-right:auto;">
+            <tr style="background-color: rgba(0, 0, 0, 0.801);color:white ;">
+                <th>Event name</th>
+                <th>Registration start date</th>
+                <th>Registration end date</th>
+                <th>Registration link</th>
+            </tr>
+            <% pevents.forEach(function(item){ %>
+            <tr style="color:white ;background-color: rgba(0, 0, 0, 0.425);">
+                <% if(item.event_status=="2"){ %>
+                <td><%= item.event_name%></td>
+                <td><%= item.event_date %></td>
+                <td><%= item.registration_end_date%></td>
+                <div >
+                <td ><a style="color: white;" href=<%= item.registration_link %> >Click here</td>
+                </div>
+                <% } %>  
+            </tr>
+            <% }) %>
+            </table>
+            <% } %>
+        </div>
+        <br>
+        <br>
+        <div style="color:black">
+            <h3><b>Upcoming Events</b></h3>
+            <% if(pevents!=null) { %>
+            
+            <table class="table table-bordered" style="text-align: center;margin-left:auto;margin-right:auto;">
+            <tr style="background-color: rgba(0, 0, 0, 0.801);color:white ;">
+                <th>Event name</th>
+                <th>Registration start date</th>
+                <th>Registration end date</th>
+                <th>Registration link</th>
+            </tr>
+            <% pevents.forEach(function(item){ %>
+            <tr style="color:white;background-color: rgba(0, 0, 0, 0.425);">
+                <% if(item.event_status=="3"){ %>
+                <td><%= item.event_name%></td>
+                <td><%= item.event_date %></td>
+                <td><%= item.registration_end_date%></td>
+                <td><%= item.registration_link %></td>
+                <% } %>  
+            </tr>
+            <% }) %>
+            </table>
+            <% } %>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jqurey.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>
